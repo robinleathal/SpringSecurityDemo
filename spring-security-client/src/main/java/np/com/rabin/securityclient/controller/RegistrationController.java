@@ -6,9 +6,7 @@ import np.com.rabin.securityclient.model.UserModel;
 import np.com.rabin.securityclient.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,6 +23,14 @@ public class RegistrationController {
         UserEntity userEntity = userService.registerUser(userModel);
         eventPublisher.publishEvent(new RegistrationCompleteEvent(userEntity, applicationUrl(request)));
         return "Success";
+    }
+    @GetMapping("/verifyRegistration")
+    public String verifyRegistration(@RequestParam("token") String token) {
+        String result = userService.validateVerificationToken(token);
+        if (result.equalsIgnoreCase("valid")) {
+            return "User Verified successfully.";
+        }
+        return "User verification failed. Verification Token is bad or expired";
     }
 
     private String applicationUrl(HttpServletRequest request) {
