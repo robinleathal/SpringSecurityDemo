@@ -16,5 +16,6 @@
 
     <modules>
         <module>spring-security-client</module>
+        <module>outh2.0-auth-server</module>
     </modules>
 </project>
