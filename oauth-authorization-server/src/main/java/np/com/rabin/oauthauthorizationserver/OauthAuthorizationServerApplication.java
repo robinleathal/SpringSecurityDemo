@@ -1,13 +1,13 @@
-package np.com.rabin.oauthserver;
+package np.com.rabin.oauthauthorizationserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class OauthAuthorizationServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(OauthAuthorizationServerApplication.class, args);
 	}
 
 }

@@ -7,13 +7,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="oauth-authorization-server" />
         <module name="spring-security-client" />
-        <module name="outh2.0-auth-server" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="outh2.0-auth-server" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="oauth-authorization-server" options="-parameters" />
       <module name="outh2.0-auth-server" options="-parameters" />
       <module name="spring-security-client" options="-parameters" />
     </option>
